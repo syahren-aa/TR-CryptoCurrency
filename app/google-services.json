@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904499003009",
+    "project_id": "tr-cryptocurrency",
+    "storage_bucket": "tr-cryptocurrency.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904499003009:android:a120cbb3eba4e626bfd780",
+        "android_client_info": {
+          "package_name": "com.asyahren.trcryptocurrency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904499003009-c6n8p8ee4b7urlupvvhtlqab5p72qkfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1kR6vwtNHquHwq_kkC2hPh9YDs9o9moE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904499003009-c6n8p8ee4b7urlupvvhtlqab5p72qkfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
