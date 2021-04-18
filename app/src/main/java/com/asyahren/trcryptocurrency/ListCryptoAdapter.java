@@ -32,7 +32,7 @@ public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.Li
         Cryptocurrency cryptocurrency = listCrypto.get(position);
         holder.nameTextView.setText(cryptocurrency.getName());
         holder.symbolTextView.setText(cryptocurrency.getSymbol());
-        holder.priceTextView.setText((int) cryptocurrency.getPrice());
+        holder.priceTextView.setText(String.valueOf(cryptocurrency.getPrice()));
 
     }
 
