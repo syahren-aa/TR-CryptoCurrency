@@ -2,15 +2,15 @@ package com.asyahren.trcryptocurrency.model;
 
 public class User {
 
-    private int id;
+    private String userId;
     private String email;
     private String password;
     private String name;
     private String phone;
     private double balance;
 
-    public User(int id, String email, String password, String name, String phone, double balance){
-        this.id = id;
+    public User(String userId, String email, String password, String name, String phone, double balance){
+        this.userId = userId;
         this.email = email;
         this.password = password;
         this.name = name;
@@ -22,12 +22,12 @@ public class User {
 
     }
 
-    public int getId() {
-        return id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getEmail() {
