@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TR Cryptocurrency</string>
+    <string name="login">LOGIN</string>
+    <string name="signIn">SIGN UP</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TR Cryptocurrency</string>
+    <string name="login">MASUK</string>
+    <string name="signIn">DAFTAR</string>
+    <string name="username">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="FirstName">Nama Depan</string>
+    <string name="LastName">Nama Belakang</string>
+    <string name="phone">Telepon</string>
+</resources>

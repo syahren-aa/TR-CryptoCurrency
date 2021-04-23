@@ -1,4 +1,6 @@
-package com.asyahren.trcryptocurrency;
+package com.asyahren.trcryptocurrency.ConsumeRes;
+
+import com.asyahren.trcryptocurrency.model.Cryptocurrency;
 
 import java.util.ArrayList;
 

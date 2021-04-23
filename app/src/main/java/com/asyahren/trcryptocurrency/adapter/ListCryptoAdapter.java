@@ -1,7 +1,6 @@
-package com.asyahren.trcryptocurrency;
+package com.asyahren.trcryptocurrency.adapter;
 
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,6 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.asyahren.trcryptocurrency.R;
+import com.asyahren.trcryptocurrency.model.Cryptocurrency;
 
 import java.util.ArrayList;
 
