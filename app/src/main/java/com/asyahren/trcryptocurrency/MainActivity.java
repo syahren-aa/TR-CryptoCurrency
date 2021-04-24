@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.asyahren.trcryptocurrency.adapter.ListCryptoAdapter;
 import com.asyahren.trcryptocurrency.model.Cryptocurrency;
@@ -71,5 +73,9 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto.setLayoutManager(new LinearLayoutManager(this));
         ListCryptoAdapter listCryptoAdapter = new ListCryptoAdapter(list);
         rvCrypto.setAdapter(listCryptoAdapter);
+    }
+
+    public void Mulai(View view) {
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 }

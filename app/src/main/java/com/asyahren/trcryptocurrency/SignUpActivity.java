@@ -3,22 +3,30 @@ package com.asyahren.trcryptocurrency;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.asyahren.trcryptocurrency.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class SignUpActivity extends AppCompatActivity {
 
-    private DatabaseReference mFirebaseDatabase;
+    private FirebaseAuth mAuth;
     private EditText etEmail, etFirstName, etLastName, etPassword, etPhone;
     private Button btnSignUp;
     private String userId;
@@ -27,60 +35,80 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
+
+        mAuth = FirebaseAuth.getInstance();
+
         etEmail = findViewById(R.id.etEmail);
         etFirstName = findViewById(R.id.etFirstName);
         etLastName = findViewById(R.id.etLastName);
         etPassword = findViewById(R.id.etPassword);
         etPhone = findViewById(R.id.etPhone);
+        btnSignUp = findViewById(R.id.btnSignUp);
 
-        mFirebaseDatabase = mFirebaseInstance.getReference("users");
-        mFirebaseInstance.getReference("app_title").setValue("DBCrypto");
-        mFirebaseInstance.getReference("app_title").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etEmail.getText().toString();
-                String password = etPassword.getText().toString();
-                String name = etFirstName.getText().toString()+etLastName.getText().toString();
-                String phone = etPhone.getText().toString();
-                double balance = 0;
-
-                if(TextUtils.isEmpty(userId)){
-                    createUser(email, password, name, phone, balance);
-                }else{
-
+                if(etEmail.getText().toString().isEmpty()){
+                    etEmail.setError("Email "+ R.string.required);
+                    etEmail.requestFocus();
                 }
-            }
+                if(etFirstName.toString().isEmpty()){
+                    etFirstName.setError("First Name "+ R.string.required);
+                    etFirstName.requestFocus();
+                }
+                if(etLastName.toString().isEmpty()){
+                    etLastName.setError("Last Name "+ R.string.required);
+                    etLastName.requestFocus();
+                }
+                if(etPassword.toString().isEmpty()){
+                    etPassword.setError("Password "+ R.string.required);
+                    etPassword.requestFocus();
+                }
+                if(etPassword.length()<6){
+                    etPassword.setError("Password "+ R.string.passwordChar);
+                }
+                if(etPhone.toString().isEmpty()){
+                    etFirstName.setError("Phone "+ R.string.required);
+                    etFirstName.requestFocus();
+                }
+                    String email = etEmail.getText().toString();
+                    String password = etPassword.getText().toString();
+                    String name = etFirstName.getText().toString()+etLastName.getText().toString();
+                    String phone = etPhone.getText().toString();
+                    double balance = (double) 0;
+                    HashMap<String, Double> hasCrypto = new HashMap<String, Double>();
+
+                    if(!email.isEmpty() && !password.isEmpty() && !name.isEmpty()
+                    && !phone.isEmpty())
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()){
+                                        User user = new User(email, password, name, phone, balance, hasCrypto);
+
+                                        FirebaseDatabase.getInstance().getReference("Users")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()){
+                                                    Toast.makeText(SignUpActivity.this, R.string.succesSignUp, Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                                                }else{
+                                                    Toast.makeText(SignUpActivity.this, R.string.failedSignUp, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }else{
+                                        Toast.makeText(SignUpActivity.this, R.string.failedSignUp, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
         });
 
     }
-
-    private void createUser(String email, String password, String name, String phone, double balance) {
-        if (TextUtils.isEmpty(userId)) {
-            userId = mFirebaseDatabase.push().getKey();
-        }
-
-        User user = new User(userId, email, password, name, phone, balance);
-
-        mFirebaseDatabase.child(userId).setValue(user);
-
-        addUserChangeListener();
-    }
-
-    private void addUserChangeListener() {
-    }
-
 
 }

@@ -21,5 +21,6 @@
     </style>
     <style name="SplashScreenStyle" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_brand_logo</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

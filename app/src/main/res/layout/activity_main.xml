@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Mulai"
+        />
+
+<RelativeLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:layout_weight="8">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCrypto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_crypto" />
 </RelativeLayout>
+</LinearLayout>

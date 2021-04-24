@@ -1,33 +1,38 @@
 package com.asyahren.trcryptocurrency.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class User {
 
-    private String userId;
     private String email;
     private String password;
     private String name;
     private String phone;
-    private double balance;
+    private Double balance;
+    private HashMap<String, Double> hasCrypto;
 
-    public User(String userId, String email, String password, String name, String phone, double balance){
-        this.userId = userId;
+    public User(String email, String password, String name,
+                String phone, Double balance, HashMap<String, Double> hasCrypto){
         this.email = email;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.balance = balance;
+        this.hasCrypto = hasCrypto;
+
     }
 
     public User(){
 
     }
 
-    public String getUserId() {
-        return userId;
+    public HashMap<String, Double> getHasCrypto() {
+        return hasCrypto;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setHasCrypto(HashMap<String, Double> hasCrypto) {
+        this.hasCrypto = hasCrypto;
     }
 
     public String getEmail() {

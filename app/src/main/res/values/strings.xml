@@ -7,4 +7,10 @@
     <string name="FirstName">First Name</string>
     <string name="LastName">Last Name</string>
     <string name="phone">Phone</string>
+    <string name="required">is Required</string>
+    <string name="succesSignUp">User has been Registered Successfully</string>
+    <string name="failedSignUp">Failed to Register User</string>
+    <string name="noAccount">Don\'t have Account? Register</string>
+    <string name="passwordChar" translatable="false">Should have at least 6 alphabet</string>
+    <string name="failedLogin">Failed to login! Please check email/password</string>
 </resources>
