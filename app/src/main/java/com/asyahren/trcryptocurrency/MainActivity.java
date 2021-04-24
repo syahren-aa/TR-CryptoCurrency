@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.asyahren.trcryptocurrency.adapter.ListCryptoAdapter;
 import com.asyahren.trcryptocurrency.model.Cryptocurrency;
@@ -26,50 +27,12 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto = findViewById(R.id.rvCrypto);
         rvCrypto.setHasFixedSize(true);
 
-        for(int i=0;i<3;i++){
-            Cryptocurrency cryptocurrency = new Cryptocurrency();
-            cryptocurrency.setName("Bitcoin"+i);
-            cryptocurrency.setSymbol("BTC"+i);
-            cryptocurrency.setPrice(1000);
-            list.add(cryptocurrency);
-
-        }
+        list.addAll(RequestData.getListData());
+        Toast.makeText(this, list.get(0).getName(), Toast.LENGTH_SHORT).show();
         showRecyclerList();
     }
 
-
-//    public void startRequest(){
-//        APIList apiList = RetrofitClient.getRetrofitClient().create(APIList.class);
-//        Call<ArrayList<Cryptocurrency>> call = apiList.getAllCryptocurrency();
-//        call.enqueue(new Callback<ArrayList<Cryptocurrency>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<Cryptocurrency>> call, Response<ArrayList<Cryptocurrency>> response) {
-//                if(response.isSuccessful()){
-//                    ArrayList<Cryptocurrency> data = response.body();
-//                    for(int i=0;i<data.size();i++){
-//                        Cryptocurrency cryptocurrency = new Cryptocurrency();
-//                        cryptocurrency.setName(data.get(i).getName());
-//                        cryptocurrency.setSymbol(data.get(i).getSymbol());
-//                        cryptocurrency.setPrice(data.get(i).getPrice());
-//                        list.add(cryptocurrency);
-//                    }
-//                }else {
-//                    Log.e("ini", ""+response);
-//                    Toast.makeText(getApplicationContext(),
-//                            "Response from Server is Failed" + response, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ArrayList<Cryptocurrency>> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(),
-//                        "Failed to get/send data from Server", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
     private void showRecyclerList(){
-        //startRequest();
         rvCrypto.setLayoutManager(new LinearLayoutManager(this));
         ListCryptoAdapter listCryptoAdapter = new ListCryptoAdapter(list);
         rvCrypto.setAdapter(listCryptoAdapter);

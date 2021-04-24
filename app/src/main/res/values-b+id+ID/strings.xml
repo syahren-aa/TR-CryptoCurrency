@@ -8,9 +8,10 @@
     <string name="LastName">Nama Belakang</string>
     <string name="phone">Telepon</string>
     <string name="required">tidak boleh kosong</string>
-    <string name="succesSignUp">Pendaftaran Pengguna baru berhasil</string>
+    <string name="succesSignUp">Pendaftaran Pengguna baru berhasil, cek email untuk verifikasi</string>
     <string name="failedSignUp">Gagal mendaftarkan pengguna</string>
     <string name="noAccount">Belum punya akun? Daftar</string>
     <string name="passwordChar" translatable="false">Password Setidaknya memiliki panjang 6 huruf</string>
     <string name="failedLogin">Login gagal!Harap cek email/password</string>
+    <string name="emailCheck">Silahkan cek email untuk memverifikasi akun</string>
 </resources>

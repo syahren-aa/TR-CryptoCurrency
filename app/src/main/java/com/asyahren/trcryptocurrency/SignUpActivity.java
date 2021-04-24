@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                     String email = etEmail.getText().toString();
                     String password = etPassword.getText().toString();
-                    String name = etFirstName.getText().toString()+etLastName.getText().toString();
+                    String name = etFirstName.getText().toString()+" "+etLastName.getText().toString();
                     String phone = etPhone.getText().toString();
                     double balance = (double) 0;
                     HashMap<String, Double> hasCrypto = new HashMap<String, Double>();
@@ -94,8 +95,10 @@ public class SignUpActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
+                                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                                     Toast.makeText(SignUpActivity.this, R.string.succesSignUp, Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                                                    user.sendEmailVerification();
+                                                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                                                 }else{
                                                     Toast.makeText(SignUpActivity.this, R.string.failedSignUp, Toast.LENGTH_SHORT).show();
                                                 }
