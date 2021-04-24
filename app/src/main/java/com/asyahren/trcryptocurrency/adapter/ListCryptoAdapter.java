@@ -37,7 +37,7 @@ public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.Li
 //        USD usd = listCrypto.get(position);
         holder.nameTextView.setText(datum.getName());
         holder.symbolTextView.setText(datum.getSymbol());
-//        holder.priceTextView.setText(String.valueOf(usd.getPrice()));
+        holder.priceTextView.setText(String.valueOf(datum.getQuote().getUSD().getPrice()));
 
     }
 

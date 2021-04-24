@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rvCrypto;
     private List<Datum> data = null;
+    ListCryptoAdapter listCryptoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +61,15 @@ public class MainActivity extends AppCompatActivity {
                     // add to the existing list
                     data.clear();
                     data.addAll(crypto.getData());
+                    listCryptoAdapter.notifyDataSetChanged();
 //                    for(int i=0;i<data.size();i++){
 //                        Datum datum = new Datum();
-//                        datum.setName(data.get(i).getName());
+//                        datum.setName(dat a.get(i).getName());
 //                        datum.setSymbol(data.get(i).getSymbol());
 ////                        datum.setPrice(data.get(i).getPrice());
 //                        list.add(datum);
 //                    }
-                    Toast.makeText(getApplicationContext(), "hasil "+ data.get(0).getName(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "hasil "+ data.get(0).getName(), Toast.LENGTH_SHORT).show();
 
                 }else {
                     Log.e("ini", ""+response);
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         //startRequest();
         data = new ArrayList<>();
         rvCrypto.setLayoutManager(new LinearLayoutManager(this));
-        ListCryptoAdapter listCryptoAdapter = new ListCryptoAdapter(data);
+        listCryptoAdapter = new ListCryptoAdapter(data);
         rvCrypto.setAdapter(listCryptoAdapter);
     }
 }
