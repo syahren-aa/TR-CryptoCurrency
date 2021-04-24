@@ -6,18 +6,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
+import com.asyahren.trcryptocurrency.ConsumeRes.APIList;
+import com.asyahren.trcryptocurrency.ConsumeRes.RetrofitClient;
 import com.asyahren.trcryptocurrency.adapter.ListCryptoAdapter;
-import com.asyahren.trcryptocurrency.model.Cryptocurrency;
+import com.asyahren.trcryptocurrency.model.CryptoData;
+import com.asyahren.trcryptocurrency.model.DataItem;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rvCrypto;
-    private ArrayList<Cryptocurrency> list = new ArrayList<>();
+    private ArrayList<DataItem> data = null;
+    ListCryptoAdapter listCryptoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +35,39 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto = findViewById(R.id.rvCrypto);
         rvCrypto.setHasFixedSize(true);
 
-        list.addAll(RequestData.getListData());
-        Toast.makeText(this, list.get(0).getName(), Toast.LENGTH_SHORT).show();
+        startRequest();
         showRecyclerList();
     }
 
+
+    public void startRequest() {
+        APIList apiList = RetrofitClient.getRetrofitClient().create(APIList.class);
+        Call<CryptoData> call = apiList.getAllCryptocurrency();
+        call.enqueue(new Callback<CryptoData>() {
+            @Override
+            public void onResponse(Call<CryptoData> call, Response<CryptoData> response) {
+                if(response.isSuccessful()){
+                    CryptoData crypto = response.body();
+                    data.clear();
+                    data.addAll(crypto.getData());
+                    listCryptoAdapter.notifyDataSetChanged();
+                }else {
+                    Log.e("ini", ""+response);
+                    Log.e("Responya", "Response from Server is Failed" + response);
+                }
+            }
+            @Override
+            public void onFailure(Call<CryptoData> call, Throwable t) {
+                Log.e("Responya", "Response from Server is Failed" + t.toString());
+            }
+        });
+    }
+
+
     private void showRecyclerList(){
+        data = new ArrayList<>();
         rvCrypto.setLayoutManager(new LinearLayoutManager(this));
-        ListCryptoAdapter listCryptoAdapter = new ListCryptoAdapter(list);
+        listCryptoAdapter = new ListCryptoAdapter(data);
         rvCrypto.setAdapter(listCryptoAdapter);
     }
 

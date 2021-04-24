@@ -1,105 +1,144 @@
 package com.asyahren.trcryptocurrency.model;
 
 import java.util.List;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class DataItem{
 
-	@SerializedName("symbol")
-	private String symbol;
-
-	@SerializedName("circulating_supply")
-	private int circulatingSupply;
-
-	@SerializedName("last_updated")
-	private String lastUpdated;
-
-	@SerializedName("total_supply")
-	private int totalSupply;
-
-	@SerializedName("cmc_rank")
-	private int cmcRank;
-
-	@SerializedName("platform")
-	private Object platform;
-
-	@SerializedName("tags")
-	private List<String> tags;
-
-	@SerializedName("date_added")
-	private String dateAdded;
-
-	@SerializedName("quote")
-	private Quote quote;
-
-	@SerializedName("num_market_pairs")
-	private int numMarketPairs;
-
-	@SerializedName("name")
-	private String name;
-
-	@SerializedName("max_supply")
-	private int maxSupply;
 
 	@SerializedName("id")
-	private int id;
-
+	@Expose
+	private Integer id;
+	@SerializedName("name")
+	@Expose
+	private String name;
+	@SerializedName("symbol")
+	@Expose
+	private String symbol;
 	@SerializedName("slug")
+	@Expose
 	private String slug;
+	@SerializedName("circulating_supply")
+	@Expose
+	private Double circulatingSupply;
+	@SerializedName("total_supply")
+	@Expose
+	private Double totalSupply;
+	@SerializedName("max_supply")
+	@Expose
+	private Double maxSupply;
+	@SerializedName("date_added")
+	@Expose
+	private String dateAdded;
+	@SerializedName("num_market_pairs")
+	@Expose
+	private Integer numMarketPairs;
+	@SerializedName("cmc_rank")
+	@Expose
+	private Integer cmcRank;
+	@SerializedName("last_updated")
+	@Expose
+	private String lastUpdated;
+	@SerializedName("quote")
+	@Expose
+	private com.asyahren.trcryptocurrency.model.Quote quote;
+	private final static long serialVersionUID = 991796161238960817L;
 
-	public String getSymbol(){
-		return symbol;
-	}
-
-	public int getCirculatingSupply(){
-		return circulatingSupply;
-	}
-
-	public String getLastUpdated(){
-		return lastUpdated;
-	}
-
-	public int getTotalSupply(){
-		return totalSupply;
-	}
-
-	public int getCmcRank(){
-		return cmcRank;
-	}
-
-	public Object getPlatform(){
-		return platform;
-	}
-
-	public List<String> getTags(){
-		return tags;
-	}
-
-	public String getDateAdded(){
-		return dateAdded;
-	}
-
-	public Quote getQuote(){
-		return quote;
-	}
-
-	public int getNumMarketPairs(){
-		return numMarketPairs;
-	}
-
-	public String getName(){
-		return name;
-	}
-
-	public int getMaxSupply(){
-		return maxSupply;
-	}
-
-	public int getId(){
+	public Integer getId() {
 		return id;
 	}
 
-	public String getSlug(){
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	public String getSlug() {
 		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+	public Double getCirculatingSupply() {
+		return circulatingSupply;
+	}
+
+	public void setCirculatingSupply(Double circulatingSupply) {
+		this.circulatingSupply = circulatingSupply;
+	}
+
+	public Double getTotalSupply() {
+		return totalSupply;
+	}
+
+	public void setTotalSupply(Double totalSupply) {
+		this.totalSupply = totalSupply;
+	}
+
+	public Double getMaxSupply() {
+		return maxSupply;
+	}
+
+	public void setMaxSupply(Double maxSupply) {
+		this.maxSupply = maxSupply;
+	}
+
+	public String getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(String dateAdded) {
+		this.dateAdded = dateAdded;
+	}
+
+	public Integer getNumMarketPairs() {
+		return numMarketPairs;
+	}
+
+	public void setNumMarketPairs(Integer numMarketPairs) {
+		this.numMarketPairs = numMarketPairs;
+	}
+
+	public Integer getCmcRank() {
+		return cmcRank;
+	}
+
+	public void setCmcRank(Integer cmcRank) {
+		this.cmcRank = cmcRank;
+	}
+
+	public String getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(String lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	public com.asyahren.trcryptocurrency.model.Quote getQuote() {
+		return quote;
+	}
+
+	public void setQuote(com.asyahren.trcryptocurrency.model.Quote quote) {
+		this.quote = quote;
 	}
 }

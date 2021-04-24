@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.asyahren.trcryptocurrency.R;
-import com.asyahren.trcryptocurrency.model.Cryptocurrency;
+import com.asyahren.trcryptocurrency.model.DataItem;
 
 import java.util.ArrayList;
 
 public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.ListViewHolder> {
 
-    private ArrayList<Cryptocurrency> listCrypto;
+    private ArrayList<DataItem> listCrypto;
 
-    public ListCryptoAdapter(ArrayList<Cryptocurrency> list) {
+    public ListCryptoAdapter(ArrayList<DataItem> list) {
         this.listCrypto = list;
     }
 
@@ -31,10 +31,10 @@ public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.Li
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        Cryptocurrency cryptocurrency = listCrypto.get(position);
+        DataItem cryptocurrency = listCrypto.get(position);
         holder.nameTextView.setText(cryptocurrency.getName());
         holder.symbolTextView.setText(cryptocurrency.getSymbol());
-        holder.priceTextView.setText(String.valueOf(cryptocurrency.getPrice()));
+        holder.priceTextView.setText(String.valueOf(cryptocurrency.getQuote().getUSD().getPrice()));
 
     }
 

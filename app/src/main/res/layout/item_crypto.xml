@@ -14,7 +14,7 @@
         android:id="@+id/symbolList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:paddingLeft="2dp"
         android:paddingRight="2dp" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/nameList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:paddingLeft="2dp"
         android:paddingRight="2dp" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/priceList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:paddingLeft="2dp"
         android:paddingRight="2dp" />
 

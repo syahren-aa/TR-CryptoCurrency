@@ -1,9 +1,6 @@
 package com.asyahren.trcryptocurrency.ConsumeRes;
 
 import com.asyahren.trcryptocurrency.model.CryptoData;
-import com.asyahren.trcryptocurrency.model.Cryptocurrency;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
