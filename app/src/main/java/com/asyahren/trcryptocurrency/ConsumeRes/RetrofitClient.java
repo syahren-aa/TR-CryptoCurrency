@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String baseURL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest/";
+    private static final String baseURL = "https://pro-api.coinmarketcap.com";
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofitClient(){
