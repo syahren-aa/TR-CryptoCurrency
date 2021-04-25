@@ -76,4 +76,8 @@ public class LoginActivity extends AppCompatActivity {
     public void SignUp(View view) {
         startActivity(new Intent(this, SignUpActivity.class));
     }
+
+    public void ForgotPassword(View view) {
+        startActivity(new Intent(this, ForgotPasswordActivity.class));
+    }
 }

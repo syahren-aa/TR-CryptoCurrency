@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:layout_height="180pt"
+    android:layout_height="190pt"
     android:layout_width="150pt"
     android:layout_gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -58,8 +58,20 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_marginTop="10pt"
+            android:text="@string/forgotPassword"
+            android:onClick="ForgotPassword"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="10pt"
             android:text="@string/noAccount"
             android:onClick="SignUp"/>
+
+
+
     </LinearLayout>
 
 

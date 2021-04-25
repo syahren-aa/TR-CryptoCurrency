@@ -52,4 +52,7 @@ public class UserProfile extends AppCompatActivity{
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(UserProfile.this, MainActivity.class));
     }
+
+    public void PhotoProfil(View view) {
+    }
 }

@@ -14,4 +14,7 @@
     <string name="passwordChar" translatable="false">Password Setidaknya memiliki panjang 6 huruf</string>
     <string name="failedLogin">Login gagal!Harap cek email/password</string>
     <string name="emailCheck">Silahkan cek email untuk memverifikasi akun</string>
+    <string name="logout">Keluar</string>
+    <string name="save">Simpan</string>
+    <string name="forgotPassword">Lupa Password</string>
 </resources>

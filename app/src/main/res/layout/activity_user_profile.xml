@@ -10,7 +10,8 @@
         android:layout_height="70pt"
         android:layout_gravity="center"
         android:layout_marginTop="10pt"
-        android:src="@drawable/user"/>
+        android:src="@drawable/user"
+        android:onClick="PhotoProfil"/>
 
     <TextView
         android:inputType="textEmailAddress"
