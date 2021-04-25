@@ -43,14 +43,15 @@
         android:layout_gravity="center"
         android:textSize="10pt"
         />
-    <EditText
-        android:inputType="textPassword"
+
+    <Button
         android:id="@+id/etPasswordUser"
-        android:layout_marginTop="2pt"
-        android:layout_width="120pt"
+        android:layout_margin="5pt"
+        android:layout_width="70pt"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="10pt"
+        android:text="@string/forgotPassword"
+        android:onClick="ForgotPassword"
         />
 
     <Button
@@ -58,7 +59,10 @@
         android:layout_margin="5pt"
         android:layout_width="70pt"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:onClick="UpdateUser"
+        />
+
     <Button
         android:text="@string/logout"
         android:id="@+id/btnLogout"

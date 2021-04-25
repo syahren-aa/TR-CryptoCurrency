@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.asyahren.trcryptocurrency.model.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,10 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfile extends AppCompatActivity{
 
-
+    private FirebaseUser user;
+    private DatabaseReference dbRef;
+    private String userId = null;
     private TextView tvEmail;
-    private EditText etName, etPhoneUser, etPasswordUser;
-    private Button btnLogout;
+    private EditText etName, etPhoneUser;
+    private Button btnLogout, etPasswordUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,6 @@ public class UserProfile extends AppCompatActivity{
         tvEmail.setText(email);
         etName.setText(name);
         etPhoneUser.setText(phone);
-        etPasswordUser.setText(password);
     }
 
     public void Logout(View view) {
@@ -54,5 +56,25 @@ public class UserProfile extends AppCompatActivity{
     }
 
     public void PhotoProfil(View view) {
+    }
+
+    public void UpdateUser(View view) {
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        dbRef = FirebaseDatabase.getInstance().getReference("Users");
+
+
+        try{
+            userId = user.getUid();
+            dbRef.child(userId).child("name").setValue(etName.getText().toString());
+            dbRef.child(userId).child("phone").setValue(etPhoneUser.getText().toString());
+            Toast.makeText(this, R.string.dataUpdatedSuccess, Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(this, R.string.dataUpdatedFailed, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void ForgotPassword(View view) {
+        startActivity(new Intent(this, ForgotPasswordActivity.class));
     }
 }

@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCryptocurrency">
         <activity android:name=".ForgotPasswordActivity"></activity>
-        <activity android:name=".ConvertActivity" />
         <activity android:name=".UserProfile" />
         <activity android:name=".SignUpActivity" />
         <activity
