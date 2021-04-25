@@ -22,4 +22,5 @@
     <string name="resetFailure">Reset is Failure, Something wrong happened</string>
     <string name="dataUpdatedSuccess">Data has been updated</string>
     <string name="dataUpdatedFailed" translatable="false">Update data is failed</string>
+    <string name="users">User Profile</string>
 </resources>

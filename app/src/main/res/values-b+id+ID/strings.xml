@@ -20,5 +20,7 @@
     <string name="putEmail">Masukkan email anda</string>
     <string name="reset">Reset</string>
     <string name="resetFailure">Reset gagal, Sesuatu yang salah terjadi</string>
-    <string name="dataUpdatedSuccess">Data telah berhasil di update</string>
+    <string name="dataUpdatedSuccess">Data telah berhasil di perbarui</string>
+    <string name="dataUpdatedFailed" translatable="false">Data gagal di perbarui</string>
+    <string name="users">Profil Pengguna</string>
 </resources>
