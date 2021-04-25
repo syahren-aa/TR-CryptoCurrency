@@ -14,4 +14,5 @@
     <string name="passwordChar" translatable="false">Should have at least 6 alphabet</string>
     <string name="failedLogin">Failed to login! Please check email/password</string>
     <string name="emailCheck">Check your email to verify your account</string>
+    <string name="logout">Log Out</string>
 </resources>

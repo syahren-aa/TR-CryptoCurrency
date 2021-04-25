@@ -1,9 +1,11 @@
 package com.asyahren.trcryptocurrency;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,14 @@ import com.asyahren.trcryptocurrency.ConsumeRes.RetrofitClient;
 import com.asyahren.trcryptocurrency.adapter.ListCryptoAdapter;
 import com.asyahren.trcryptocurrency.model.CryptoData;
 import com.asyahren.trcryptocurrency.model.DataItem;
+import com.asyahren.trcryptocurrency.model.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -23,9 +33,13 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseUser user;
+    private DatabaseReference dbRef;
+    private String userId = null;
     private RecyclerView rvCrypto;
     private ArrayList<DataItem> data = null;
     ListCryptoAdapter listCryptoAdapter;
+    private final int REQUEST_CODE_USERPROFILE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +86,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Mulai(View view) {
-        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-    }
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        dbRef = FirebaseDatabase.getInstance().getReference("Users");
+
+        try {
+            if (user.getUid() != null) {
+                userId = user.getUid();
+                dbRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User currUser = snapshot.getValue(User.class);
+                        if (currUser != null) {
+                            Intent intent = new Intent(MainActivity.this, UserProfile.class);
+                            String email = currUser.getEmail();
+                            String name = currUser.getName();
+                            String phone = currUser.getPhone();
+                            String password = currUser.getPassword();
+
+                            intent.putExtra("email", email);
+                            intent.putExtra("name", name);
+                            intent.putExtra("phone", phone);
+                            intent.putExtra("password", password);
+
+                            startActivity(intent);
+                        } else {
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+            } else {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        }catch (Exception e){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
+
+//        FirebaseUser user;
+//        user = FirebaseAuth.getInstance().getCurrentUser();
+//        if(user != null){
+//            startActivity(new Intent(MainActivity.this, UserProfile.class));
+//        }else{
+//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//        }
+       }
 }
