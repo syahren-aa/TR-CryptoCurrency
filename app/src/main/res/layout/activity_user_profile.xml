@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePhoto"
         android:layout_width="70pt"
         android:layout_height="70pt"
         android:layout_gravity="center"
@@ -52,6 +53,7 @@
         />
 
     <Button
+        android:text="@string/save"
         android:layout_margin="5pt"
         android:layout_width="70pt"
         android:layout_height="wrap_content"

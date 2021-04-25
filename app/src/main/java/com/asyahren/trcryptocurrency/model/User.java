@@ -10,10 +10,10 @@ public class User {
     private String name;
     private String phone;
     private Double balance;
-    private HashMap<String, Double> hasCrypto;
+    private ArrayList<HasCrypto> hasCrypto;
 
     public User(String email, String password, String name,
-                String phone, Double balance, HashMap<String, Double> hasCrypto){
+                String phone, Double balance, ArrayList<HasCrypto> hasCrypto){
         this.email = email;
         this.password = password;
         this.name = name;
@@ -27,11 +27,19 @@ public class User {
 
     }
 
-    public HashMap<String, Double> getHasCrypto() {
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public ArrayList<HasCrypto> getHasCrypto() {
         return hasCrypto;
     }
 
-    public void setHasCrypto(HashMap<String, Double> hasCrypto) {
+    public void setHasCrypto(ArrayList<HasCrypto> hasCrypto) {
         this.hasCrypto = hasCrypto;
     }
 
@@ -67,11 +75,26 @@ public class User {
         this.phone = phone;
     }
 
-    public double getBalance() {
-        return balance;
-    }
+    public class HasCrypto{
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+        String currencyName;
+        Double fund;
+
+        public String getCurrencyName() {
+            return currencyName;
+        }
+
+        public void setCurrencyName(String currencyName) {
+            this.currencyName = currencyName;
+        }
+
+        public Double getFund() {
+            return fund;
+        }
+
+        public void setFund(Double fund) {
+            this.fund = fund;
+        }
+
     }
 }

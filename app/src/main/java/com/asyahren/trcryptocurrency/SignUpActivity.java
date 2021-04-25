@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -51,26 +52,26 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(etEmail.getText().toString().isEmpty()){
-                    etEmail.setError("Email "+ R.string.required);
+                    etEmail.setError(String.format("Email %d", R.string.required));
                     etEmail.requestFocus();
                 }
                 if(etFirstName.toString().isEmpty()){
-                    etFirstName.setError("First Name "+ R.string.required);
+                    etFirstName.setError(String.format("First Name %d", R.string.required));
                     etFirstName.requestFocus();
                 }
                 if(etLastName.toString().isEmpty()){
-                    etLastName.setError("Last Name "+ R.string.required);
+                    etLastName.setError(String.format("Last Name %d", R.string.required));
                     etLastName.requestFocus();
                 }
                 if(etPassword.toString().isEmpty()){
-                    etPassword.setError("Password "+ R.string.required);
+                    etPassword.setError(String.format("Password %d", R.string.required));
                     etPassword.requestFocus();
                 }
                 if(etPassword.length()<6){
-                    etPassword.setError("Password "+ R.string.passwordChar);
+                    etPassword.setError(String.format("Password %d", R.string.passwordChar));
                 }
                 if(etPhone.toString().isEmpty()){
-                    etFirstName.setError("Phone "+ R.string.required);
+                    etFirstName.setError(String.format("Phone %d", R.string.required));
                     etFirstName.requestFocus();
                 }
                     String email = etEmail.getText().toString();
@@ -78,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
                     String name = etFirstName.getText().toString()+" "+etLastName.getText().toString();
                     String phone = etPhone.getText().toString();
                     double balance = (double) 0;
-                    HashMap<String, Double> hasCrypto = new HashMap<String, Double>();
+                    ArrayList<User.HasCrypto> hasCrypto = new ArrayList<User.HasCrypto>();
 
                     if(!email.isEmpty() && !password.isEmpty() && !name.isEmpty()
                     && !phone.isEmpty())
