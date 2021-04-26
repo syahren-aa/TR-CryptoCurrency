@@ -1,47 +1,47 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">TR Cryptocurrency</string>
-    <string name="login">LOGIN</string>
-    <string name="signIn">SIGN UP</string>
+    <string name="login">MASUK</string>
+    <string name="signIn">DAFTAR</string>
     <string name="username">Email</string>
-    <string name="password">Password</string>
+    <string name="password">Kata Sandi</string>
+    <string name="FirstName">Nama Depan</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="nav_header_title">Android Studio</string>
-    <string name="FirstName">First Name</string>
-    <string name="LastName">Last Name</string>
-    <string name="phone">Phone</string>
-    <string name="required">is Required</string>
-    <string name="succesSignUp">User has been Registered Successfully, check your email for verification</string>
-    <string name="failedSignUp">Failed to Register User</string>
-    <string name="noAccount">Don\'t have Account? Register</string>
-    <string name="passwordChar" translatable="false">Should have at least 6 alphabet</string>
-    <string name="failedLogin">Failed to login! Please check email/password</string>
-    <string name="emailCheck">Check your email to verify your account</string>
-    <string name="logout">Log Out</string>
-    <string name="save">Save</string>
-    <string name="forgotPassword">Reset Password</string>
-    <string name="putEmail">Enter your email address</string>
+    <string name="LastName">Nama Belakang</string>
+    <string name="phone">Telepon</string>
+    <string name="required">tidak boleh kosong</string>
+    <string name="succesSignUp">Pendaftaran Pengguna baru berhasil, cek email untuk verifikasi</string>
+    <string name="failedSignUp">Gagal mendaftarkan pengguna</string>
+    <string name="noAccount">Belum punya akun? Daftar</string>
+    <string name="passwordChar" translatable="false">Password Setidaknya memiliki panjang 6 huruf</string>
+    <string name="failedLogin">Login gagal!Harap cek email/password</string>
+    <string name="emailCheck">Silahkan cek email untuk memverifikasi akun</string>
+    <string name="logout">Keluar</string>
+    <string name="save">Simpan</string>
+    <string name="forgotPassword">Lupa Password</string>
+    <string name="putEmail">Masukkan email anda</string>
     <string name="reset">Reset</string>
-    <string name="resetFailure">Reset is Failure, Something wrong happened</string>
-    <string name="dataUpdatedSuccess">Data has been updated</string>
-    <string name="dataUpdatedFailed" translatable="false">Update data is failed</string>
-    <string name="users">User Profile</string>
-    <string name="top_up" tools:ignore="MissingTranslation">Top Up</string>
-    <string name="coin">Coin</string>
-    <string name="name">Name</string>
-    <string name="price">Price</string>
-    <string name="lastUpdate">Last Updated</string>
-    <string name="symbol">Symbol</string>
+    <string name="resetFailure">Reset gagal, Sesuatu yang salah terjadi</string>
+    <string name="dataUpdatedSuccess">Data telah berhasil di perbarui</string>
+    <string name="dataUpdatedFailed" translatable="false">Data gagal di perbarui</string>
+    <string name="users">Profil Pengguna</string>
+    <string name="coin">Koin</string>
+    <string name="name">Nama</string>
+    <string name="price">Harga</string>
+    <string name="lastUpdate">Perbaruan Terakhir</string>
+    <string name="symbol">Simbol</string>
     <string name="slug">Slug</string>
     <string name="volume24">Volume/24</string>
-    <string name="circulatingSupply">Circulating Supply</string>
-    <string name="maxSupply">Max Supply</string>
-    <string name="marketCap">Market Cap</string>
-    <string name="change1h">Change 1h</string>
-    <string name="change24h">Change 24h</string>
-    <string name="change7d">Change 7d</string>
-    <string name="matchEmail" translatable="false">Wrong email format!</string>
-    <string name="userProfile">User Profile</string>
-    <string name="topUp">Top Up</string>
-    <string name="convert">Convert</string>
-    <string name="notEnough">Your Wallet is not enough</string>
+    <string name="circulatingSupply">Persediaan yang Beredar</string>
+    <string name="maxSupply">Pasokan Maksimal</string>
+    <string name="marketCap">Kapasitas Pasar</string>
+    <string name="change1h">Perubahan 1 jam</string>
+    <string name="change24h">Perubahan 24 jam</string>
+    <string name="change7d">Perubahan 7 jam</string>
+    <string name="matchEmail">Format email yang anda masukkan salah</string>
+    <string name="top_up">Isi Ulang</string>
+    <string name="userProfile">Profil Pengguna</string>
+    <string name="topUp">Isi Ulang</string>
+    <string name="convert">Konversi</string>
+    <string name="notEnough">Saldo anda tidak mencukupi</string>
 </resources>

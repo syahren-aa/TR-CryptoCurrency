@@ -47,10 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                     etEmail.setError(String.format("Email %s", getResources().getString(R.string.required)));
                     etEmail.requestFocus();
                 }
-                if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    etEmail.setError(String.valueOf(R.string.matchEmail));
-                    etEmail.requestFocus();
-                }
                 if (password.isEmpty()) {
                     etPassword.setError(String.format("Password %s", getResources().getString(R.string.required)));
                     etPassword.requestFocus();

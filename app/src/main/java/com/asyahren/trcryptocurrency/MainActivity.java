@@ -155,7 +155,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void PindahTopUp(MenuItem item) {
-        startActivity(new Intent(MainActivity.this, TopUpActivity.class));
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        dbRef = FirebaseDatabase.getInstance().getReference("Users");
+        try{
+            if(user!=null){
+                startActivity(new Intent(MainActivity.this, TopUpActivity.class));
+            }else{
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
 
+        }catch (Exception e){
+
+        }
     }
 }
