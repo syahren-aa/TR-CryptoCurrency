@@ -49,6 +49,16 @@
         android:text="@string/username"
         android:textAlignment="center"
         />
+
+    <TextView
+        android:id="@+id/balanceTV"
+        android:layout_width="120pt"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="10pt"
+        android:text="0"
+        android:textAlignment="center"
+        />
     <EditText
         android:inputType="textEmailAddress"
         android:id="@+id/tvEmail"

@@ -39,7 +39,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150pt"
+        android:layout_height="100pt"
         android:layout_margin="5dp"
         android:background="@color/serasi1"
 
@@ -295,18 +295,21 @@
 
     </LinearLayout>
     <EditText
+        android:id="@+id/valueCrypto"
         android:clickable="true"
         android:hint="Value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"/>
     <Button
+        android:onClick="Convert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/convert1"
+        android:text="@string/convert"
         />
 
     <EditText
+        android:id="@+id/priceResult"
         android:hint="@string/price"
         android:clickable="false"
         android:layout_width="match_parent"

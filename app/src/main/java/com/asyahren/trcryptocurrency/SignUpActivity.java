@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
                     etEmail.requestFocus();
                 }
                 if(Patterns.EMAIL_ADDRESS.matcher(etEmail.toString()).matches()){
-                    etEmail.setError(String.valueOf(R.string.matchEmail));
+                    etEmail.setError(String.valueOf(getResources().getString(R.string.matchEmail)));
                     etEmail.requestFocus();
                 }
                 if(etFirstName.toString().isEmpty()){

@@ -129,11 +129,13 @@ public class MainActivity extends AppCompatActivity {
                             String name = currUser.getName();
                             String phone = currUser.getPhone();
                             String password = currUser.getPassword();
+                            String balance = currUser.getBalance().toString();
 
                             intent.putExtra("email", email);
                             intent.putExtra("name", name);
                             intent.putExtra("phone", phone);
                             intent.putExtra("password", password);
+                            intent.putExtra("balances", balance);
 
                             startActivity(intent);
                         } else {
@@ -153,7 +155,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void PindahTopUp(MenuItem item) {
-        startActivity(new Intent(MainActivity.this, TopUpActivity.class));
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        dbRef = FirebaseDatabase.getInstance().getReference("Users");
+        try{
+            if(user!=null){
+                startActivity(new Intent(MainActivity.this, TopUpActivity.class));
+            }else{
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
 
+        }catch (Exception e){
+
+        }
     }
 }

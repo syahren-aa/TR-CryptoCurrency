@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"/>
     <Button
-        android:text= "@string/top_up"
+        android:text= "@string/topUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="TopUp"/>

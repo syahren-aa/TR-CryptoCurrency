@@ -1,0 +1,47 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">TR Cryptocurrency</string>
+    <string name="login">LOGIN</string>
+    <string name="signIn">SIGN UP</string>
+    <string name="username">Email</string>
+    <string name="password">Password</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last Name</string>
+    <string name="phone">Phone</string>
+    <string name="required">is Required</string>
+    <string name="succesSignUp">User has been Registered Successfully, check your email for verification</string>
+    <string name="failedSignUp">Failed to Register User</string>
+    <string name="noAccount">Don\'t have Account? Register</string>
+    <string name="passwordChar" translatable="false">Should have at least 6 alphabet</string>
+    <string name="failedLogin">Failed to login! Please check email/password</string>
+    <string name="emailCheck">Check your email to verify your account</string>
+    <string name="logout">Log Out</string>
+    <string name="save">Save</string>
+    <string name="forgotPassword">Reset Password</string>
+    <string name="putEmail">Enter your email address</string>
+    <string name="reset">Reset</string>
+    <string name="resetFailure">Reset is Failure, Something wrong happened</string>
+    <string name="dataUpdatedSuccess">Data has been updated</string>
+    <string name="dataUpdatedFailed" translatable="false">Update data is failed</string>
+    <string name="users">User Profile</string>
+    <string name="top_up" tools:ignore="MissingTranslation">Top Up</string>
+    <string name="coin">Coin</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="lastUpdate">Last Updated</string>
+    <string name="symbol">Symbol</string>
+    <string name="slug">Slug</string>
+    <string name="volume24">Volume/24</string>
+    <string name="circulatingSupply">Circulating Supply</string>
+    <string name="maxSupply">Max Supply</string>
+    <string name="marketCap">Market Cap</string>
+    <string name="change1h">Change 1h</string>
+    <string name="change24h">Change 24h</string>
+    <string name="change7d">Change 7d</string>
+    <string name="matchEmail" translatable="false">Wrong email format!</string>
+    <string name="userProfile">User Profile</string>
+    <string name="topUp">Top Up</string>
+    <string name="convert">Convert</string>
+    <string name="notEnough">Your Wallet is not enough</string>
+</resources>

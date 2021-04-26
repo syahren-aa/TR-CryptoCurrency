@@ -1,14 +1,25 @@
 package com.asyahren.trcryptocurrency;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.asyahren.trcryptocurrency.model.DataItem;
 import com.asyahren.trcryptocurrency.model.USD;
+import com.asyahren.trcryptocurrency.model.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +29,10 @@ import java.util.TimeZone;
 
 public class DetailCrypto extends AppCompatActivity {
 
+    private TextView name;
+    private FirebaseUser user;
+    private DatabaseReference dbRef;
+    EditText valueCrypto, priceResult;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +42,12 @@ public class DetailCrypto extends AppCompatActivity {
         DataItem datum = intent.getParcelableExtra("coin");
         USD usd = intent.getParcelableExtra("usd");
 
-        TextView name = findViewById(R.id.name);
+        name = findViewById(R.id.name);
         TextView price = findViewById(R.id.price);
         TextView date = findViewById(R.id.date);
+
+        valueCrypto = findViewById(R.id.valueCrypto);
+        priceResult =findViewById(R.id.priceResult);
 
         TextView symbol = findViewById(R.id.symbol);
         TextView slug = findViewById(R.id.slug);
@@ -80,6 +98,47 @@ public class DetailCrypto extends AppCompatActivity {
     }
 
     public void buyCrypto(View view) {
-        
+        Double priceBuy = Double.parseDouble(priceResult.getText().toString());
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        dbRef = FirebaseDatabase.getInstance().getReference("Users");
+        try {
+            String userId = user.getUid();
+            dbRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    User currUser = snapshot.getValue(User.class);
+                    Double biaya1 = currUser.getBalance();
+
+                    if(biaya1-priceBuy>=0){
+                        dbRef.child(userId).child("crypton").child("name").setValue(name.getText().toString());
+                        dbRef.child(userId).child("crypton").child("value").setValue(priceBuy);
+                        valueCrypto.setText("");
+                        priceResult.setText("");
+                        dbRef.child(user.getUid()).child("balance").setValue(biaya1-priceBuy);
+                    }else{
+                        valueCrypto.setText("");
+                        priceResult.setText("");
+                        Toast.makeText(DetailCrypto.this, getResources().getString(R.string.notEnough), Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        }catch (Exception e){
+
+        }
+    }
+
+    public void Convert(View view) {
+        Double priceCryp = Double.parseDouble(valueCrypto.getText().toString());
+        Double priceRp = priceCryp * 14490.70;
+
+        priceResult.setText(priceRp.toString());
     }
 }

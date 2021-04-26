@@ -38,6 +38,7 @@ public class UserProfile extends AppCompatActivity{
     private String userId = null;
     private TextView txtNameProfile;
     private EditText etName, etPhoneUser,tvEmail;
+    private TextView balanceTV;
     private Button btnLogout, etPasswordUser;
     private ImageView imageView;
     private de.hdodenhof.circleimageview.CircleImageView profilePhoto;
@@ -55,12 +56,15 @@ public class UserProfile extends AppCompatActivity{
         profilePhoto = findViewById(R.id.profilePhoto);
         imageView = findViewById(R.id.imageView);
         txtNameProfile = findViewById(R.id.txtNameProfile);
+        balanceTV = findViewById(R.id.balanceTV);
 
         Intent intent = getIntent();
         String email = intent.getStringExtra("email");
         String name = intent.getStringExtra("name");
         String phone = intent.getStringExtra("phone");
         String password = intent.getStringExtra("password");
+        String balance = intent.getStringExtra("balances");
+
 
         storageReference = FirebaseStorage.getInstance().getReference();
         StorageReference profileRef = storageReference.child("users/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"profile.jpg");
@@ -71,6 +75,7 @@ public class UserProfile extends AppCompatActivity{
             }
         });
 
+        balanceTV.setText(balance);
         tvEmail.setText(email);
         etName.setText(name);
         etPhoneUser.setText(phone);

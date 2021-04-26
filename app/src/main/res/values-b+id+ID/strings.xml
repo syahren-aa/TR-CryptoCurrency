@@ -39,8 +39,8 @@
     <string name="change24h">Perubahan 24 jam</string>
     <string name="change7d">Perubahan 7 jam</string>
     <string name="matchEmail">Format email yang anda masukkan salah</string>
-    <string name="top_up">Isi Ulang</string>
     <string name="userProfile">Profil Pengguna</string>
     <string name="topUp">Isi Ulang</string>
-    <string name="convert1">Konversi</string>
+    <string name="convert">Konversi</string>
+    <string name="notEnough">Saldo Anda Tidak Cukup</string>
 </resources>
