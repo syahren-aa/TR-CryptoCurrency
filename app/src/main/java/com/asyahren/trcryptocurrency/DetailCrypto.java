@@ -80,11 +80,11 @@ public class DetailCrypto extends AppCompatActivity {
 
 
     private String parseDateToddMMyyyy(String time) {
-        //parse the server timestamp. Make sure it is in UTC timezone as per API specifications.
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-        //format the utc server timestamp to local timezone.
+
         SimpleDateFormat output = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
         output.setTimeZone(TimeZone.getDefault());
 

@@ -102,12 +102,6 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto.setAdapter(listCryptoAdapter);
 
 
-//        listCryptoAdapter.setOnItemClickCallback(new ListCryptoAdapter.OnItemClickCallback() {
-//            @Override
-//            public void onItemClicked(DataItem dataItem) {
-//                showSelectedHero(dataItem);
-//            }
-//        });
 
     }
 
