@@ -5,6 +5,8 @@
     <string name="username">Email</string>
     <string name="password">Kata Sandi</string>
     <string name="FirstName">Nama Depan</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Android Studio</string>
     <string name="LastName">Nama Belakang</string>
     <string name="phone">Telepon</string>
     <string name="required">tidak boleh kosong</string>
