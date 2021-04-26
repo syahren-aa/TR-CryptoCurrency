@@ -99,12 +99,12 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto.setAdapter(listCryptoAdapter);
 
 
-        listCryptoAdapter.setOnItemClickCallback(new ListCryptoAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(DataItem dataItem) {
-                showSelectedHero(dataItem);
-            }
-        });
+//        listCryptoAdapter.setOnItemClickCallback(new ListCryptoAdapter.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(DataItem dataItem) {
+//                showSelectedHero(dataItem);
+//            }
+//        });
 
     }
 
@@ -150,8 +150,8 @@ public class MainActivity extends AppCompatActivity {
         }
        }
 
-    private void showSelectedHero(DataItem dataItem) {
-        Toast.makeText(this, "Kamu memilih " + dataItem.getName(), Toast.LENGTH_SHORT).show();
-    }
+//    private void showSelectedHero(DataItem dataItem) {
+//        Toast.makeText(this, "Kamu memilih " + dataItem.getName(), Toast.LENGTH_SHORT).show();
+//    }
 
 }

@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="10pt"
+        android:focusable="false"
         />
     <EditText
         android:inputType="phone"
