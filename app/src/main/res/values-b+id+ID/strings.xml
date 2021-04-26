@@ -32,16 +32,15 @@
     <string name="symbol">Simbol</string>
     <string name="slug">Slug</string>
     <string name="volume24">Volume/24</string>
-    <string name="circulatingSupply">Circulating Supply</string>
-    <string name="maxSupply">Max Supply</string>
-    <string name="marketCap">Market Cap</string>
-    <string name="change1h">Change 1h</string>
-    <string name="change24h">Change 24h</string>
-    <string name="change7d">Change 7d</string>
-    <string name="matchEmail" translatable="false">Wrong email format!</string>
-    <string name="userProfile">User Profile</string>
-    <string name="topUp">Top Up</string>
-    <string name="convert">Convert</string>
-    <string name="notEnough">Your Wallet is not enough</string>
-
+    <string name="circulatingSupply">Persediaan yang Beredar</string>
+    <string name="maxSupply">Pasokan Maksimal</string>
+    <string name="marketCap">Kapasitas Pasar</string>
+    <string name="change1h">Perubahan 1 jam</string>
+    <string name="change24h">Perubahan 24 jam</string>
+    <string name="change7d">Perubahan 7 jam</string>
+    <string name="matchEmail">Format email yang anda masukkan salah</string>
+    <string name="userProfile">Profil Pengguna</string>
+    <string name="topUp">Isi Ulang</string>
+    <string name="convert">Konversi</string>
+    <string name="notEnough">Saldo Anda Tidak Cukup</string>
 </resources>

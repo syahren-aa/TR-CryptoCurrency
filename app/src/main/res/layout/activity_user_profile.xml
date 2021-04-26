@@ -4,16 +4,73 @@
     android:layout_width="match_parent"
     android:orientation="vertical">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilePhoto"
-        android:layout_width="70pt"
-        android:layout_height="70pt"
-        android:layout_gravity="center"
-        android:layout_marginTop="10pt"
-        android:src="@drawable/user"
-        android:onClick="PhotoProfil"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="20dp"
+        android:background="@color/serasi1"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePhoto"
+            android:layout_width="70pt"
+            android:layout_height="70pt"
+            android:layout_gravity="center"
+            android:layout_marginTop="10pt"
+            android:layout_centerVertical="true"
+            android:src="@drawable/user"
+            android:onClick="PhotoProfil"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_toRightOf="@+id/profilePhoto"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="10dp">
 
     <TextView
+        android:inputType="text"
+        android:text="Nama"
+        android:id="@+id/txtNameProfile"
+        android:layout_marginTop="2pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profilePhoto"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="10pt"
+        />
+    <TextView
+        android:id="@+id/balanceTV"
+        android:layout_width="120pt"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="9pt"
+        android:text="0"
+
+        />
+
+</LinearLayout>
+
+
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_marginTop="2pt"
+        android:layout_width="120pt"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="6pt"
+        android:text="@string/username"
+        android:textAlignment="center"
+        />
+
+    <EditText
         android:inputType="textEmailAddress"
         android:id="@+id/tvEmail"
         android:layout_marginTop="2pt"
@@ -23,36 +80,61 @@
         android:textSize="10pt"
         android:text="@string/username"
         android:textAlignment="center"
-        />
-
-    <TextView
-        android:id="@+id/balanceTV"
-        android:layout_width="120pt"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="10pt"
-        android:text="0"
-        android:textAlignment="center"
-        />
-    <EditText
-        android:inputType="text"
-        android:id="@+id/etName"
-        android:layout_marginTop="2pt"
-        android:layout_width="120pt"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="10pt"
         android:focusable="false"
         />
-    <EditText
-        android:inputType="phone"
-        android:id="@+id/etPhoneUser"
-        android:layout_marginTop="2pt"
-        android:layout_width="120pt"
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="10pt"
-        />
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="2pt"
+            android:layout_width="120pt"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="6pt"
+            android:text="@string/name"
+            android:textAlignment="center"
+            />
+        <EditText
+            android:inputType="text"
+            android:id="@+id/etName"
+            android:layout_marginTop="2pt"
+            android:textAlignment="center"
+            android:layout_width="120pt"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="10pt"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="2pt"
+            android:layout_width="120pt"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="6pt"
+            android:text="@string/phone"
+            android:textAlignment="center"
+            />
+        <EditText
+            android:inputType="phone"
+            android:id="@+id/etPhoneUser"
+            android:layout_marginTop="2pt"
+            android:layout_width="120pt"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="10pt"
+            />
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/etPasswordUser"

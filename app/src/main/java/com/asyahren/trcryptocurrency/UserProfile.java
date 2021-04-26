@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +36,11 @@ public class UserProfile extends AppCompatActivity{
     private FirebaseUser user;
     private DatabaseReference dbRef;
     private String userId = null;
-    private TextView tvEmail, balanceTV;
-    private EditText etName, etPhoneUser;
+    private TextView txtNameProfile;
+    private EditText etName, etPhoneUser,tvEmail;
+    private TextView balanceTV;
     private Button btnLogout, etPasswordUser;
+    private ImageView imageView;
     private de.hdodenhof.circleimageview.CircleImageView profilePhoto;
     private StorageReference storageReference;
 
@@ -51,6 +54,8 @@ public class UserProfile extends AppCompatActivity{
         etPasswordUser = findViewById(R.id.etPasswordUser);
         etPhoneUser = findViewById(R.id.etPhoneUser);
         profilePhoto = findViewById(R.id.profilePhoto);
+        imageView = findViewById(R.id.imageView);
+        txtNameProfile = findViewById(R.id.txtNameProfile);
         balanceTV = findViewById(R.id.balanceTV);
 
         Intent intent = getIntent();
@@ -74,6 +79,7 @@ public class UserProfile extends AppCompatActivity{
         tvEmail.setText(email);
         etName.setText(name);
         etPhoneUser.setText(phone);
+        txtNameProfile.setText(name);
     }
 
     public void Logout(View view) {
