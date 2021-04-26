@@ -39,4 +39,6 @@
     <string name="change24h">Change 24h</string>
     <string name="change7d">Change 7d</string>
     <string name="matchEmail" translatable="false">Wrong email format!</string>
+    <string name="userProfile">User Profile</string>
+    <string name="topUp">Top Up</string>
 </resources>

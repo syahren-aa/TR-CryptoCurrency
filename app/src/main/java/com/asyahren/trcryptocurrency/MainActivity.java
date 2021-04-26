@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import android.widget.Button;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     ListCryptoAdapter listCryptoAdapter;
     private final int REQUEST_CODE_USERPROFILE = 1;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,19 +55,25 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto = findViewById(R.id.rvCrypto);
         rvCrypto.setHasFixedSize(true);
 
+
         btnMulai = findViewById(R.id.btnMulai);
         startRequest();
         showRecyclerList();
 
-        try {
-            user = FirebaseAuth.getInstance().getCurrentUser();
-            dbRef = FirebaseDatabase.getInstance().getReference("Users");
-            if(user.getUid()!=null){
-                btnMulai.setText(R.string.users);
-            }
-        }catch (Exception e){
-            btnMulai.setText(R.string.login);
-        }
+//        try {
+//            user = FirebaseAuth.getInstance().getCurrentUser();
+//            dbRef = FirebaseDatabase.getInstance().getReference("Users");
+//            if(user.getUid()!=null){
+//                btnMulai.setText(R.string.users);
+//            }
+//        }catch (Exception e){
+//            btnMulai.setText(R.string.login);
+//        }
+
+//        MenuItem.OnMenuItemClickListener(new MenuItem.OnMenuItemClickListener())
+
+
+
     }
 
 
@@ -108,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Mulai(View view) {
+    public void StartUser(MenuItem item) {
         user = FirebaseAuth.getInstance().getCurrentUser();
         dbRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -148,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
-       }
+    }
 
 //    private void showSelectedHero(DataItem dataItem) {
 //        Toast.makeText(this, "Kamu memilih " + dataItem.getName(), Toast.LENGTH_SHORT).show();
