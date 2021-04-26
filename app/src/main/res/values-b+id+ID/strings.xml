@@ -23,4 +23,5 @@
     <string name="dataUpdatedSuccess">Data telah berhasil di perbarui</string>
     <string name="dataUpdatedFailed" translatable="false">Data gagal di perbarui</string>
     <string name="users">Profil Pengguna</string>
+    <string name="matchEmail">Format email yang anda masukkan salah</string>
 </resources>

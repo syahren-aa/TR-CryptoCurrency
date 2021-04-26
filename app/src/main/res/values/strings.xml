@@ -26,4 +26,5 @@
     <string name="coin">Coin</string>
     <string name="name">Name</string>
     <string name="price">Price(USD)</string>
+    <string name="matchEmail" translatable="false">Wrong email format!</string>
 </resources>
