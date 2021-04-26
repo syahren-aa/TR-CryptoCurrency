@@ -4,6 +4,8 @@
     <string name="signIn">SIGN UP</string>
     <string name="username">Email</string>
     <string name="password">Password</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Android Studio</string>
     <string name="FirstName">First Name</string>
     <string name="LastName">Last Name</string>
     <string name="phone">Phone</string>
