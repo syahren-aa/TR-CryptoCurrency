@@ -53,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(etEmail.getText().toString().isEmpty()){
-                    etEmail.setError(String.format("Email %d", R.string.required));
+                    etEmail.setError(String.format("Email %s", getResources().getString(R.string.required)));
                     etEmail.requestFocus();
                 }
                 if(Patterns.EMAIL_ADDRESS.matcher(etEmail.toString()).matches()){
@@ -61,23 +61,24 @@ public class SignUpActivity extends AppCompatActivity {
                     etEmail.requestFocus();
                 }
                 if(etFirstName.toString().isEmpty()){
-                    etFirstName.setError(String.format("First Name %d", R.string.required));
+                    etFirstName.setError(String.format("First Name %s", getResources().getString(R.string.required)));
                     etFirstName.requestFocus();
                 }
                 if(etLastName.toString().isEmpty()){
-                    etLastName.setError(String.format("Last Name %d", R.string.required));
+                    etLastName.setError(String.format("Last Name %s", getResources().getString(R.string.required)));
                     etLastName.requestFocus();
                 }
                 if(etPassword.toString().isEmpty()){
-                    etPassword.setError(String.format("Password %d", R.string.required));
+                    etPassword.setError(String.format("Password %s", getResources().getString(R.string.required)));
                     etPassword.requestFocus();
                 }
                 if(etPassword.length()<6){
-                    etPassword.setError(String.format("Password %d", R.string.passwordChar));
+                    etPassword.setError(String.format("Password %s", getResources().getString(R.string.passwordChar)));
+                    etPassword.requestFocus();
                 }
                 if(etPhone.toString().isEmpty()){
-                    etFirstName.setError(String.format("Phone %d", R.string.required));
-                    etFirstName.requestFocus();
+                    etPhone.setError(String.format("Phone %s", getResources().getString(R.string.required)));
+                    etPhone.requestFocus();
                 }
                     String email = etEmail.getText().toString();
                     String password = etPassword.getText().toString();
@@ -102,16 +103,16 @@ public class SignUpActivity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
                                                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                                    Toast.makeText(SignUpActivity.this, R.string.succesSignUp, Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(SignUpActivity.this, getResources().getString(R.string.succesSignUp), Toast.LENGTH_SHORT).show();
                                                     user.sendEmailVerification();
                                                     startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                                                 }else{
-                                                    Toast.makeText(SignUpActivity.this, R.string.failedSignUp, Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(SignUpActivity.this, getResources().getString(R.string.failedSignUp), Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
                                     }else{
-                                        Toast.makeText(SignUpActivity.this, R.string.failedSignUp, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpActivity.this, getResources().getString(R.string.failedSignUp), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

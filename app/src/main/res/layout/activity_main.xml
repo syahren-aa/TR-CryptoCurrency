@@ -54,9 +54,9 @@
 
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
         <include
             layout="@layout/app_bar_main"
             android:layout_width="match_parent"
@@ -64,10 +64,19 @@
             />
         <Button
             android:id="@+id/btnMulai"
-            android:layout_width="match_parent"
+            android:layout_width="40pt"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:onClick="Mulai"/>
+
+        <Button
+            android:gravity="right"
+            android:text="@string/top_up"
+            android:id="@+id/btnTopUpActivity"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:onClick="PindahTopUp"
+            />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.asyahren.trcryptocurrency">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -11,7 +9,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.TRCryptocurrency">
-        <activity android:name=".DetailCrypto"></activity>
+        <activity android:name=".TopUpActivity"></activity>
+        <activity android:name=".DetailCrypto" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".UserProfile" />
         <activity android:name=".SignUpActivity" />
@@ -27,5 +26,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

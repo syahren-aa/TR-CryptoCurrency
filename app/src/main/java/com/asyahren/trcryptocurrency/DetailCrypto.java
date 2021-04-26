@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.asyahren.trcryptocurrency.model.DataItem;
@@ -76,5 +77,9 @@ public class DetailCrypto extends AppCompatActivity {
             e.printStackTrace();
         }
         return output.format(date);
+    }
+
+    public void buyCrypto(View view) {
+        
     }
 }

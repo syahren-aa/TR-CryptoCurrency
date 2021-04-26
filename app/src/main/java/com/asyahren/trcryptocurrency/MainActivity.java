@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private String userId = null;
     private RecyclerView rvCrypto;
     private ArrayList<DataItem> data = null;
-    private Button btnMulai;
+    private Button btnMulai, btnTopUp;
     ListCryptoAdapter listCryptoAdapter;
     private final int REQUEST_CODE_USERPROFILE = 1;
 
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto.setHasFixedSize(true);
 
         btnMulai = findViewById(R.id.btnMulai);
+        btnTopUp = findViewById(R.id.btnTopUpActivity);
         startRequest();
         showRecyclerList();
 
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             dbRef = FirebaseDatabase.getInstance().getReference("Users");
             if(user.getUid()!=null){
                 btnMulai.setText(R.string.users);
+                btnTopUp.isClickable();
             }
         }catch (Exception e){
             btnMulai.setText(R.string.login);
@@ -154,4 +156,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Kamu memilih " + dataItem.getName(), Toast.LENGTH_SHORT).show();
     }
 
+    public void PindahTopUp(View view) {
+        startActivity(new Intent(MainActivity.this, TopUpActivity.class));
+    }
 }

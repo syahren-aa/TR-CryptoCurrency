@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">TR Cryptocurrency</string>
     <string name="login">LOGIN</string>
     <string name="signIn">SIGN UP</string>
@@ -25,8 +25,9 @@
     <string name="dataUpdatedSuccess">Data has been updated</string>
     <string name="dataUpdatedFailed" translatable="false">Update data is failed</string>
     <string name="users">User Profile</string>
-    <string name="coin">Coin</string>
-    <string name="name">Name</string>
-    <string name="price">Price(USD)</string>
+    <string name="coin" tools:ignore="MissingTranslation">Coin</string>
+    <string name="name" tools:ignore="MissingTranslation">Name</string>
+    <string name="price" tools:ignore="MissingTranslation">Price(USD)</string>
     <string name="matchEmail" translatable="false">Wrong email format!</string>
+    <string name="top_up" tools:ignore="MissingTranslation">Top Up</string>
 </resources>

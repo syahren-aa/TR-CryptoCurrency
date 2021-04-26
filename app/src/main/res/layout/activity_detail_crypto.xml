@@ -154,14 +154,14 @@
         </ScrollView>
 
     </LinearLayout>
-    <EditText
+    <me.abhinay.input.CurrencyEditText
         android:clickable="true"
         android:hint="Value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"/>
 
-    <EditText
+    <me.abhinay.input.CurrencyEditText
         android:hint="@string/price"
         android:clickable="false"
         android:layout_width="match_parent"
@@ -170,6 +170,7 @@
         />
 
     <Button
+        android:onClick="buyCrypto"
         android:text="buy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString().trim();
 
                 if (email.isEmpty()) {
-                    etEmail.setError(String.format("Email %d", R.string.required));
+                    etEmail.setError(String.format("Email %s", getResources().getString(R.string.required)));
                     etEmail.requestFocus();
                 }
                 if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     etEmail.requestFocus();
                 }
                 if (password.isEmpty()) {
-                    etPassword.setError(String.format("Password %d", R.string.required));
+                    etPassword.setError(String.format("Password %s", getResources().getString(R.string.required)));
                     etPassword.requestFocus();
                 }
 
