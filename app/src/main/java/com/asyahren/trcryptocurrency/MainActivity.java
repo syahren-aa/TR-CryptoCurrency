@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import android.widget.Button;
@@ -40,9 +41,11 @@ public class MainActivity extends AppCompatActivity {
     private String userId = null;
     private RecyclerView rvCrypto;
     private ArrayList<DataItem> data = null;
-    private Button btnMulai, btnTopUp;
+    private Button btnTopUp;
     ListCryptoAdapter listCryptoAdapter;
     private final int REQUEST_CODE_USERPROFILE = 1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto = findViewById(R.id.rvCrypto);
         rvCrypto.setHasFixedSize(true);
 
-        btnMulai = findViewById(R.id.btnMulai);
         btnTopUp = findViewById(R.id.btnTopUpActivity);
         startRequest();
         showRecyclerList();
@@ -61,12 +63,11 @@ public class MainActivity extends AppCompatActivity {
             user = FirebaseAuth.getInstance().getCurrentUser();
             dbRef = FirebaseDatabase.getInstance().getReference("Users");
             if(user.getUid()!=null){
-                btnMulai.setText(R.string.users);
                 btnTopUp.isClickable();
             }
         }catch (Exception e){
-            btnMulai.setText(R.string.login);
         }
+
     }
 
 
@@ -101,16 +102,16 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto.setAdapter(listCryptoAdapter);
 
 
-        listCryptoAdapter.setOnItemClickCallback(new ListCryptoAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(DataItem dataItem) {
-                showSelectedHero(dataItem);
-            }
-        });
+//        listCryptoAdapter.setOnItemClickCallback(new ListCryptoAdapter.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(DataItem dataItem) {
+//                showSelectedHero(dataItem);
+//            }
+//        });
 
     }
 
-    public void Mulai(View view) {
+    public void StartUser(MenuItem item) {
         user = FirebaseAuth.getInstance().getCurrentUser();
         dbRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -150,13 +151,9 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
-       }
-
-    private void showSelectedHero(DataItem dataItem) {
-        Toast.makeText(this, "Kamu memilih " + dataItem.getName(), Toast.LENGTH_SHORT).show();
     }
-
-    public void PindahTopUp(View view) {
+    public void PindahTopUp(MenuItem item) {
         startActivity(new Intent(MainActivity.this, TopUpActivity.class));
+
     }
 }

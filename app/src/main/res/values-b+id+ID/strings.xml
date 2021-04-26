@@ -25,6 +25,21 @@
     <string name="dataUpdatedSuccess">Data telah berhasil di perbarui</string>
     <string name="dataUpdatedFailed" translatable="false">Data gagal di perbarui</string>
     <string name="users">Profil Pengguna</string>
+    <string name="coin">Koin</string>
+    <string name="name">Nama</string>
+    <string name="price">Harga</string>
+    <string name="lastUpdate">Perbaruan Terakhir</string>
+    <string name="symbol">Simbol</string>
+    <string name="slug">Slug</string>
+    <string name="volume24">Volume/24</string>
+    <string name="circulatingSupply">Persediaan yang Beredar</string>
+    <string name="maxSupply">Pasokan Maksimal</string>
+    <string name="marketCap">Kapasitas Pasar</string>
+    <string name="change1h">Perubahan 1 jam</string>
+    <string name="change24h">Perubahan 24 jam</string>
+    <string name="change7d">Perubahan 7 jam</string>
     <string name="matchEmail">Format email yang anda masukkan salah</string>
     <string name="top_up">Isi Ulang</string>
+    <string name="userProfile">Profil Pengguna</string>
+    <string name="topUp">Isi Ulang</string>
 </resources>

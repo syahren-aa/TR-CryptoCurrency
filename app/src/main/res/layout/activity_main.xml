@@ -6,51 +6,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+
+
     <LinearLayout
-        android:paddingLeft="7pt"
-        android:layout_marginLeft="4pt"
-        android:layout_marginBottom="2pt"
-        android:layout_marginTop="2pt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:textStyle="bold"
-            android:text="@string/coin"
-            android:layout_width="40pt"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp" />
-
-        <TextView
-            android:textStyle="bold"
-            android:text="@string/name"
-            android:layout_width="60pt"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp" />
-
-        <TextView
-            android:textStyle="bold"
-            android:text="@string/price"
-            android:layout_width="55pt"
-            android:layout_height="wrap_content"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp" />
-    </LinearLayout>
-
-<RelativeLayout
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="8"
-    android:layout_marginTop="60dp">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCrypto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_crypto" />
-</RelativeLayout>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:paddingLeft="7pt"
+            android:layout_marginLeft="4pt"
+            android:layout_marginBottom="2pt"
+            android:layout_marginTop="28pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:textStyle="bold"
+                android:text="@string/coin"
+                android:layout_width="40pt"
+                android:layout_height="wrap_content"
+                android:textSize="8pt"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp" />
+
+            <TextView
+                android:textStyle="bold"
+                android:text="@string/name"
+                android:layout_width="60pt"
+                android:layout_height="wrap_content"
+                android:textSize="8pt"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp" />
+
+            <TextView
+                android:textStyle="bold"
+                android:text="@string/price"
+                android:layout_width="55pt"
+                android:layout_height="wrap_content"
+                android:textSize="8pt"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:layout_marginTop="2dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCrypto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_crypto" />
+        </RelativeLayout>
+    </LinearLayout>
+
 
 
     <RelativeLayout
@@ -61,21 +73,6 @@
             layout="@layout/app_bar_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
-        <Button
-            android:id="@+id/btnMulai"
-            android:layout_width="40pt"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:onClick="Mulai"/>
-
-        <Button
-            android:gravity="right"
-            android:text="@string/top_up"
-            android:id="@+id/btnTopUpActivity"
-            android:layout_width="40pt"
-            android:layout_height="wrap_content"
-            android:onClick="PindahTopUp"
             />
     </RelativeLayout>
 

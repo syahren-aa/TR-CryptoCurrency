@@ -43,21 +43,21 @@ public class DetailCrypto extends AppCompatActivity {
         TextView change7d = findViewById(R.id.change7d);
 
         name.setText(datum.getName() + " (" + datum.getSymbol() + ")");
-        price.setText("Price: $" + String.format("%,f", usd.getPrice()));
-        date.setText("Last Updated: " + parseDateToddMMyyyy(datum.getLastUpdated()));
+        price.setText(getResources().getString(R.string.price) + " : $" + String.format("%,f", usd.getPrice()));
+        date.setText(getResources().getString(R.string.lastUpdate) + " : " + parseDateToddMMyyyy(datum.getLastUpdated()));
 
-        symbol.setText("Symbol: " + datum.getSymbol());
-        slug.setText("Slug: " + datum.getSlug());
-        volume24h.setText("Volume/24h: $" + String.format("%,d", Math.round(usd.getVolume24h())));
+        symbol.setText(" : " + datum.getSymbol());
+        slug.setText(" : " + datum.getSlug());
+        volume24h.setText(" : $" + String.format("%,d", Math.round(usd.getVolume24h())));
 
-        circulating_supply.setText("Circulating Supply: " + String.format("%.0f", datum.getCirculatingSupply()) + " " + datum.getSymbol());
-        max_supply.setText("Max Supply: " + String.format("%.0f", datum.getMaxSupply()) + " " + datum.getSymbol());
+        circulating_supply.setText(" : " + String.format("%.0f", datum.getCirculatingSupply()) + " " + datum.getSymbol());
+        max_supply.setText(" : " + String.format("%.0f", datum.getMaxSupply()) + " " + datum.getSymbol());
 
-        market_cap.setText("Market Cap: $" + String.format("%,d", Math.round(usd.getMarketCap())));
+        market_cap.setText(" : $" + String.format("%,d", Math.round(usd.getMarketCap())));
 
-        change1h.setText(String.format("Change 1h: %.2f", usd.getPercentChange1h()) + "%");
-        change24h.setText(String.format("Change 24h: %.2f", usd.getPercentChange24h()) + "%");
-        change7d.setText(String.format("Change 7d: %.2f", usd.getPercentChange7d()) + "%");
+        change1h.setText(String.format(" : %.2f", usd.getPercentChange1h()) + "%");
+        change24h.setText(String.format(" : %.2f", usd.getPercentChange24h()) + "%");
+        change7d.setText(String.format(" : %.2f", usd.getPercentChange7d()) + "%");
     }
 
 
