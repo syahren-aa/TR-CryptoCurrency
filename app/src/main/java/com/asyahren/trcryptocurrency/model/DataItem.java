@@ -1,11 +1,14 @@
 package com.asyahren.trcryptocurrency.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataItem{
+public class DataItem implements Parcelable {
 
 
 	@SerializedName("id")
@@ -45,6 +48,56 @@ public class DataItem{
 	@Expose
 	private com.asyahren.trcryptocurrency.model.Quote quote;
 	private final static long serialVersionUID = 991796161238960817L;
+
+	protected DataItem(Parcel in) {
+		if (in.readByte() == 0) {
+			id = null;
+		} else {
+			id = in.readInt();
+		}
+		name = in.readString();
+		symbol = in.readString();
+		slug = in.readString();
+		if (in.readByte() == 0) {
+			circulatingSupply = null;
+		} else {
+			circulatingSupply = in.readDouble();
+		}
+		if (in.readByte() == 0) {
+			totalSupply = null;
+		} else {
+			totalSupply = in.readDouble();
+		}
+		if (in.readByte() == 0) {
+			maxSupply = null;
+		} else {
+			maxSupply = in.readDouble();
+		}
+		dateAdded = in.readString();
+		if (in.readByte() == 0) {
+			numMarketPairs = null;
+		} else {
+			numMarketPairs = in.readInt();
+		}
+		if (in.readByte() == 0) {
+			cmcRank = null;
+		} else {
+			cmcRank = in.readInt();
+		}
+		lastUpdated = in.readString();
+	}
+
+	public static final Creator<DataItem> CREATOR = new Creator<DataItem>() {
+		@Override
+		public DataItem createFromParcel(Parcel in) {
+			return new DataItem(in);
+		}
+
+		@Override
+		public DataItem[] newArray(int size) {
+			return new DataItem[size];
+		}
+	};
 
 	public Integer getId() {
 		return id;
@@ -140,5 +193,55 @@ public class DataItem{
 
 	public void setQuote(com.asyahren.trcryptocurrency.model.Quote quote) {
 		this.quote = quote;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		if (id == null) {
+			dest.writeByte((byte) 0);
+		} else {
+			dest.writeByte((byte) 1);
+			dest.writeInt(id);
+		}
+		dest.writeString(name);
+		dest.writeString(symbol);
+		dest.writeString(slug);
+		if (circulatingSupply == null) {
+			dest.writeByte((byte) 0);
+		} else {
+			dest.writeByte((byte) 1);
+			dest.writeDouble(circulatingSupply);
+		}
+		if (totalSupply == null) {
+			dest.writeByte((byte) 0);
+		} else {
+			dest.writeByte((byte) 1);
+			dest.writeDouble(totalSupply);
+		}
+		if (maxSupply == null) {
+			dest.writeByte((byte) 0);
+		} else {
+			dest.writeByte((byte) 1);
+			dest.writeDouble(maxSupply);
+		}
+		dest.writeString(dateAdded);
+		if (numMarketPairs == null) {
+			dest.writeByte((byte) 0);
+		} else {
+			dest.writeByte((byte) 1);
+			dest.writeInt(numMarketPairs);
+		}
+		if (cmcRank == null) {
+			dest.writeByte((byte) 0);
+		} else {
+			dest.writeByte((byte) 1);
+			dest.writeInt(cmcRank);
+		}
+		dest.writeString(lastUpdated);
 	}
 }

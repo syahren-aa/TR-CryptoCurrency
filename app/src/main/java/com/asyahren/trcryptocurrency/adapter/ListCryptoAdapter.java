@@ -1,23 +1,27 @@
 package com.asyahren.trcryptocurrency.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.asyahren.trcryptocurrency.DetailCrypto;
 import com.asyahren.trcryptocurrency.R;
 import com.asyahren.trcryptocurrency.model.DataItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.ListViewHolder> {
 
     private ArrayList<DataItem> listCrypto;
-
+    private OnItemClickCallback onItemClickCallback;
     public ListCryptoAdapter(ArrayList<DataItem> list) {
         this.listCrypto = list;
     }
@@ -35,6 +39,18 @@ public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.Li
         holder.nameTextView.setText(cryptocurrency.getName());
         holder.symbolTextView.setText(cryptocurrency.getSymbol());
         holder.priceTextView.setText(String.valueOf(cryptocurrency.getQuote().getUSD().getPrice()));
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                onItemClickCallback.onItemClicked(listCrypto.get(holder.getAdapterPosition()));
+                Intent intent = new Intent(v.getContext(), DetailCrypto.class);
+                intent.putExtra("coin", listCrypto.get(position));
+                intent.putExtra("usd", listCrypto.get(position).getQuote().getUSD());
+                v.getContext().startActivities(new Intent[]{intent});
+            }
+        });
 
     }
 
@@ -54,5 +70,12 @@ public class ListCryptoAdapter extends RecyclerView.Adapter<ListCryptoAdapter.Li
             priceTextView = itemView.findViewById(R.id.priceList);
 
         }
+    }
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(DataItem dataItem);
     }
 }

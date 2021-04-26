@@ -25,4 +25,7 @@
     <string name="dataUpdatedSuccess">Data has been updated</string>
     <string name="dataUpdatedFailed" translatable="false">Update data is failed</string>
     <string name="users">User Profile</string>
+    <string name="coin">Coin</string>
+    <string name="name">Name</string>
+    <string name="price">Price(USD)</string>
 </resources>

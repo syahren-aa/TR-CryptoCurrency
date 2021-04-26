@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 import android.widget.Button;
 
 import com.asyahren.trcryptocurrency.ConsumeRes.APIList;
@@ -96,6 +97,15 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto.setLayoutManager(new LinearLayoutManager(this));
         listCryptoAdapter = new ListCryptoAdapter(data);
         rvCrypto.setAdapter(listCryptoAdapter);
+
+
+        listCryptoAdapter.setOnItemClickCallback(new ListCryptoAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(DataItem dataItem) {
+                showSelectedHero(dataItem);
+            }
+        });
+
     }
 
     public void Mulai(View view) {
@@ -139,4 +149,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
        }
+
+    private void showSelectedHero(DataItem dataItem) {
+        Toast.makeText(this, "Kamu memilih " + dataItem.getName(), Toast.LENGTH_SHORT).show();
+    }
+
 }
