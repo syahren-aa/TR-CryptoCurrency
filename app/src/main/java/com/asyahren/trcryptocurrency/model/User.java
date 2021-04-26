@@ -13,7 +13,7 @@ public class User {
     private ArrayList<HasCrypto> hasCrypto;
 
     public User(String email, String password, String name,
-                String phone, Double balance, ArrayList<HasCrypto> hasCrypto){
+        String phone, Double balance, ArrayList<HasCrypto> hasCrypto){
         this.email = email;
         this.password = password;
         this.name = name;

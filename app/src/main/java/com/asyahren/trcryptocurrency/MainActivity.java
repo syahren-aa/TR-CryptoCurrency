@@ -129,11 +129,13 @@ public class MainActivity extends AppCompatActivity {
                             String name = currUser.getName();
                             String phone = currUser.getPhone();
                             String password = currUser.getPassword();
+                            String balance = currUser.getBalance().toString();
 
                             intent.putExtra("email", email);
                             intent.putExtra("name", name);
                             intent.putExtra("phone", phone);
                             intent.putExtra("password", password);
+                            intent.putExtra("balances", balance);
 
                             startActivity(intent);
                         } else {
