@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.asyahren.trcryptocurrency.ConsumeRes.APIList;
 import com.asyahren.trcryptocurrency.ConsumeRes.RetrofitClient;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private String userId = null;
     private RecyclerView rvCrypto;
     private ArrayList<DataItem> data = null;
+    private Button btnMulai;
     ListCryptoAdapter listCryptoAdapter;
     private final int REQUEST_CODE_USERPROFILE = 1;
 
@@ -50,8 +52,19 @@ public class MainActivity extends AppCompatActivity {
         rvCrypto = findViewById(R.id.rvCrypto);
         rvCrypto.setHasFixedSize(true);
 
+        btnMulai = findViewById(R.id.btnMulai);
         startRequest();
         showRecyclerList();
+
+        try {
+            user = FirebaseAuth.getInstance().getCurrentUser();
+            dbRef = FirebaseDatabase.getInstance().getReference("Users");
+            if(user.getUid()!=null){
+                btnMulai.setText(R.string.users);
+            }
+        }catch (Exception e){
+            btnMulai.setText(R.string.login);
+        }
     }
 
 
@@ -101,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if (user.getUid() != null) {
+
                 userId = user.getUid();
                 dbRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -134,14 +148,6 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
-
-//        FirebaseUser user;
-//        user = FirebaseAuth.getInstance().getCurrentUser();
-//        if(user != null){
-//            startActivity(new Intent(MainActivity.this, UserProfile.class));
-//        }else{
-//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//        }
        }
 
     private void showSelectedHero(DataItem dataItem) {
