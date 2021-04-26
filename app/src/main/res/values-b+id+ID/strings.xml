@@ -5,6 +5,8 @@
     <string name="username">Email</string>
     <string name="password">Kata Sandi</string>
     <string name="FirstName">Nama Depan</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Android Studio</string>
     <string name="LastName">Nama Belakang</string>
     <string name="phone">Telepon</string>
     <string name="required">tidak boleh kosong</string>
@@ -36,5 +38,5 @@
     <string name="change1h">Perubahan 1 jam</string>
     <string name="change24h">Perubahan 24 jam</string>
     <string name="change7d">Perubahan 7 jam</string>
-
+    <string name="matchEmail">Format email yang anda masukkan salah</string>
 </resources>
