@@ -42,4 +42,6 @@
     <string name="top_up">Isi Ulang</string>
     <string name="userProfile">Profil Pengguna</string>
     <string name="topUp">Isi Ulang</string>
+    <string name="convert">Konversi</string>
+    <string name="notEnough">Saldo anda tidak mencukupi</string>
 </resources>
