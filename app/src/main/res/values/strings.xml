@@ -42,4 +42,5 @@
     <string name="matchEmail" translatable="false">Wrong email format!</string>
     <string name="userProfile">User Profile</string>
     <string name="topUp">Top Up</string>
+    <string name="convert1">Convert</string>
 </resources>
