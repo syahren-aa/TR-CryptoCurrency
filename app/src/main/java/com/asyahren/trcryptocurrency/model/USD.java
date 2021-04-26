@@ -1,8 +1,11 @@
 package com.asyahren.trcryptocurrency.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class USD{
+public class USD implements Parcelable {
 
 	@SerializedName("percent_change_30d")
 	private double percentChange30d;
@@ -33,6 +36,31 @@ public class USD{
 
 	@SerializedName("percent_change_7d")
 	private double percentChange7d;
+
+	protected USD(Parcel in) {
+		percentChange30d = in.readDouble();
+		percentChange1h = in.readDouble();
+		lastUpdated = in.readString();
+		percentChange24h = in.readDouble();
+		marketCap = in.readDouble();
+		price = in.readDouble();
+		percentChange60d = in.readDouble();
+		volume24h = in.readDouble();
+		percentChange90d = in.readDouble();
+		percentChange7d = in.readDouble();
+	}
+
+	public static final Creator<USD> CREATOR = new Creator<USD>() {
+		@Override
+		public USD createFromParcel(Parcel in) {
+			return new USD(in);
+		}
+
+		@Override
+		public USD[] newArray(int size) {
+			return new USD[size];
+		}
+	};
 
 	public double getPercentChange30d(){
 		return percentChange30d;
@@ -72,5 +100,24 @@ public class USD{
 
 	public double getPercentChange7d(){
 		return percentChange7d;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeDouble(percentChange30d);
+		dest.writeDouble(percentChange1h);
+		dest.writeString(lastUpdated);
+		dest.writeDouble(percentChange24h);
+		dest.writeDouble(marketCap);
+		dest.writeDouble(price);
+		dest.writeDouble(percentChange60d);
+		dest.writeDouble(volume24h);
+		dest.writeDouble(percentChange90d);
+		dest.writeDouble(percentChange7d);
 	}
 }
