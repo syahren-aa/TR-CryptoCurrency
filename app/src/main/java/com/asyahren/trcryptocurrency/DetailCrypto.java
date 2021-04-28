@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,17 +34,19 @@ public class DetailCrypto extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference dbRef;
     EditText valueCrypto, priceResult;
+    private TextView price;
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_crypto);
 
-        Intent intent = getIntent();
+        intent = getIntent();
         DataItem datum = intent.getParcelableExtra("coin");
         USD usd = intent.getParcelableExtra("usd");
 
         name = findViewById(R.id.name);
-        TextView price = findViewById(R.id.price);
+        price = findViewById(R.id.price);
         TextView date = findViewById(R.id.date);
 
         valueCrypto = findViewById(R.id.valueCrypto);
@@ -136,9 +139,13 @@ public class DetailCrypto extends AppCompatActivity {
     }
 
     public void Convert(View view) {
-        Double priceCryp = Double.parseDouble(valueCrypto.getText().toString());
-        Double priceRp = priceCryp * 14490.70;
 
-        priceResult.setText(priceRp.toString());
+        DataItem datum = intent.getParcelableExtra("coin");
+        USD usd = intent.getParcelableExtra("usd");
+
+        Double priceCryp = Double.valueOf(String.valueOf(valueCrypto.getText()));
+        Double priceRp = priceCryp * usd.getPrice() * 14490.70;
+        Log.w("okok", priceRp.toString());
+        priceResult.setText("Rp."+priceRp.toString());
     }
 }
